@@ -1,5 +1,5 @@
 # Tema
-O  tema  escolhido  para  o  trabalho  final  da  disciplina  ser ́a  um  jogo,  visando  ser  um  clonede  Bomberman.   O  projeto  utilizar ́a  os  conceitos  de  modelagem  de  projeto,  programa ̧c ̃ao  orientadaa  objetos  e  de  testes  unit ́arios.   O  tema  escolhido  tem  o  prop ́osito  de  por  em  pr ́atica  os  conceitosintroduzidos na mat ́eria.
+O tema escolhido para o trabalho final da disciplina será um jogo, visando ser um clone de Bomberman. O projeto utilizará os conceitos de modelagem de projeto, programação orientada a objetos e de testes unitários. O tema escolhido tem o propósito de por em prática os conceitos introduzidos na matéria
 
 ## User Stories
   - Como jogador preciso de um menu para sair, entrar e interagir com as opções de jogo, para facilitar a interação jogo-usuário.
