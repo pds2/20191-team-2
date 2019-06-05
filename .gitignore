@@ -1,5 +1,4 @@
 /build
 /build-release
-/.idea
 CMakeLists.txt
 example.txt
