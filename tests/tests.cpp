@@ -9,26 +9,29 @@
 using testing::Eq;
 
 namespace {
-    class ClassDeclaration : public testing::Test{
+    class ExampleTestClassSuite : public testing::Test{
     public:
         test_class obj;
-        ClassDeclaration()
+        ExampleTestClassSuite()
         {
             obj;
         }
     };
 }
-
+/*
+ *
 TEST(ExampleTest, DemonstrateGtestMacros)
 {
     EXPECT_TRUE(false);
 }
-TEST_F(ClassDeclaration, nameOfTest1)
+ * */
+
+TEST_F(ExampleTestClassSuite, nameOfTest1)
 {
     ASSERT_EQ(1, 1);
 }
 
-TEST_F(ClassDeclaration, getters_and_setters)
+TEST_F(ExampleTestClassSuite, getters_and_setters)
 {
     obj.setX(22);
     ASSERT_EQ(22, obj.getX());

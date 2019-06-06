@@ -6,9 +6,9 @@
 #define BOMBERMANC_TEST_CLASS_H
 
 class test_class{
-public:
     int x;
     int y;
+public:
     int getX() const {
         return x;
     }

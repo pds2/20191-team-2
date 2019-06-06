@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 #[[Enable Testing]]
-enable_testing()
+#enable_testing()
 
 #[[Adding Google Test C++ Library]]
 add_subdirectory(tests/libs/googletest)
