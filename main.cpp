@@ -14,17 +14,17 @@ struct GameObject {
 /*Great locality 2d int matrix*/
 class Matrix {
   int *array;
-  int m_width;
+  int width_;
 
  protected:
   /*Get right index*/
   int index(int x, int y) const {
-    return x + m_width * y;
+    return x + width_ * y;
   }
 
  public:
   /*Constructor*/
-  Matrix(int row, int col): m_width(row), array(new int[row * col]) {}
+  Matrix(int row, int col): width_(row), array(new int[row * col]) {}
 
   /*Destructor*/
   ~Matrix() {
@@ -32,13 +32,23 @@ class Matrix {
   }
 
   /*Get num from position*/
-  int at(int x, int y) const {
-    return array[index(x, y)];
+  int at(int row, int col) const {
+    return array[index(row, col)];
   }
 
-  void set(int x, int y, int value)
+  void set(int row, int col, int value)
   {
-    array[index(x,y)] = value;
+    array[index(row,col)] = value;
+  }
+  void print_matrix()
+  {
+    /*Print Board*/
+    for (int i = 0; i < width_; i++) {
+      for (int j = 0; j < width_; j++) {
+        std::cout << this->at(i, j) << " ";
+      }
+      std::cout << std::endl;
+    }
   }
 };
 
@@ -73,13 +83,17 @@ class Block : public GameObject {
 };
 
 class GameBoard {
+  enum players{player1, player2, player3, player4};
+  std::vector<std::pair<int, int>> player_pos;
   const int MAX_BOARD_SIZE = 8;
   const int MIN_BOARD_SIZE = 3;
+  const int MAX_NUM_OF_PLAYERS = 4;
 
   std::vector<Block> game_blocks_;
   int row, column;
 
   const int size_;
+
  public:
 
   GameBoard(int size) : size_{size} {
@@ -93,7 +107,7 @@ class GameBoard {
     if (size > MAX_BOARD_SIZE) {
       throw std::invalid_argument("O tam do tabuleiro tem que ser menor que 8x8!");
     }
-
+    set_players_pos();
     fill_board(size);
   }
 
@@ -117,11 +131,11 @@ class GameBoard {
         board.set(row_pos[i], col_pos[j], 0);
       }
     }
-
+    
     /*Fill Board with random pos*/
     for (int i = 0; i < size; i++) {
       for (int j = 0; j < size; j++) {
-        if(rand()%6 == 1)
+        if(rand()% 3 == 1 || is_player_pos(row_pos[i], col_pos[j]))
           continue;
         add_block(row_pos[i], col_pos[j]);
         board.set(row_pos[i], col_pos[j], 1);
@@ -129,15 +143,32 @@ class GameBoard {
     }
 
     /*Print Board*/
-    for (int i = 0; i < size; i++) {
-      for (int j = 0; j < size; j++) {
-        std::cout << board.at(i, j) << " ";
-      }
-      std::cout << std::endl;
-    }
+    board.print_matrix();
 
   }
+  bool set_players_pos()
+  {
+    player_pos.emplace_back(0, 0);
+    player_pos.emplace_back(0, size_-1);
+    player_pos.emplace_back(size_-1, 0);
+    player_pos.emplace_back(size_-1, size_-1);
+  }
 
+  bool is_player_pos(int x, int y)
+  {
+    for(int i = 0; i < MAX_NUM_OF_PLAYERS; i++)
+    {
+      if(x == player_pos[i].first)
+      {
+        if(y == player_pos[i].second)
+        {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
   void add_block(int x, int y) {
     this->game_blocks_.emplace_back(x, y);
   }
