@@ -1,18 +1,10 @@
 #include <iostream>
 #include <fstream>
+#include <gtest/gtest.h>
 
-void create_file()
+int main(int argc, char* argv[])
 {
-    std::ofstream myfile;
-    myfile.open ("example.txt");
-    myfile << "Writing this to a file.\n";
-    myfile.close();
-}
-
-int main()
-{
-    std::cout << "Hello, World!" << std::endl;
-    std::cout << "Creating File!" << std::endl;
-    create_file();
+    testing::InitGoogleTest(&argc, argv);
+    RUN_ALL_TESTS();
     return 0;
 }
