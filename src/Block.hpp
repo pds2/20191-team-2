@@ -6,8 +6,8 @@
 #define BOMBERMANC_SRC_BLOCK_H_
 
 #include <iostream>
-#include "Position.h"
-#include "GameObject.h"
+#include "Position.hpp"
+#include "GameObject.hpp"
 
 class Block : public GameObject {
  public:

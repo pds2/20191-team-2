@@ -4,7 +4,7 @@
 
 #ifndef BOMBERMANC_SRC_GAMEOBJECT_H_
 #define BOMBERMANC_SRC_GAMEOBJECT_H_
-#include "Position.h"
+#include "Position.hpp"
 class GameObject {
  protected:
     Pos pos_;
