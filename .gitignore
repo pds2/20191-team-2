@@ -2,3 +2,5 @@
 /build-release
 example.txt
 /.idea
+/libs/SDL2-2.0.9
+/tests/libs/googletest
