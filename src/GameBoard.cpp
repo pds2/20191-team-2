@@ -2,7 +2,7 @@
 // Created by giow on 07/06/19.
 //
 
-#include "GameBoard.h"
+#include "GameBoard.hpp"
 GameBoard::GameBoard(int size) : size_{size} {
     /*Safe tests*/
     if (size < 0) {

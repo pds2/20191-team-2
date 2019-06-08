@@ -18,6 +18,7 @@ add_subdirectory(tests/libs/googletest)
 include_directories(tests/libs/googletest/googletest/include)
 include_directories(tests/libs/googletest/googlemock/include)
 
+#[[Settings for SD2L Lib Static Import]]
 set( SDL_STATIC ON CACHE BOOL "" FORCE )
 set( SDL_SHARED OFF CACHE BOOL "" FORCE )
 add_subdirectory(libs/SDL2-2.0.9)
@@ -26,11 +27,14 @@ add_subdirectory(libs/SDL2-2.0.9)
 set(Headers
         #Example.h
 )
+
 #[[Sources]]
 set(Sources
         #Example.cpp
         src/main.cpp
-        tests/tests.cpp tests/test_class.h src/Matrix.cpp src/Matrix.h src/Position.h src/GameObject.h src/Block.cpp src/Block.h src/Block.cpp src/Block.h src/GameBoard.cpp src/GameBoard.h)
+        tests/tests.cpp tests/test_class.h src/Matrix.cpp src/Matrix.hpp src/Position.hpp src/GameObject.hpp src/Block.cpp src/Block.hpp src/Block.cpp src/Block.hpp src/GameBoard.cpp src/GameBoard.hpp src/Game.cpp src/Game.hpp)
 
 add_executable(${PROJECT_NAME} ${Sources} ${Headers})
+
+#[[Linking Libraries]]
 target_link_libraries(${PROJECT_NAME} gtest gtest_main SDL2main SDL2-static)

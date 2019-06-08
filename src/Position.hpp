@@ -2,8 +2,8 @@
 // Created by giow on 07/06/19.
 //
 
-#ifndef BOMBERMANC_SRC_POSITION_H_
-#define BOMBERMANC_SRC_POSITION_H_
+#ifndef BOMBERMANC_SRC_POSITION_HPP_
+#define BOMBERMANC_SRC_POSITION_HPP_
 
 /*Position class to be used by other classes*/
 class Pos {
@@ -32,4 +32,4 @@ class Pos {
     }
 };
 
-#endif //BOMBERMANC_SRC_POSITION_H_
+#endif //BOMBERMANC_SRC_POSITION_HPP_

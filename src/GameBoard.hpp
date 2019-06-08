@@ -2,13 +2,13 @@
 // Created by giow on 07/06/19.
 //
 
-#ifndef BOMBERMANC_SRC_GAMEBOARD_H_
-#define BOMBERMANC_SRC_GAMEBOARD_H_
+#ifndef BOMBERMANC_SRC_GAMEBOARD_HPP_
+#define BOMBERMANC_SRC_GAMEBOARD_HPP_
 #include <algorithm>
-#include "Position.h"
-#include "GameObject.h"
-#include "Matrix.h"
-#include "Block.h"
+#include "Position.hpp"
+#include "GameObject.hpp"
+#include "Matrix.hpp"
+#include "Block.hpp"
 
 class GameBoard {
     const int BOARD_SPARSENESS = 4;
@@ -47,4 +47,4 @@ class GameBoard {
 };
 
 
-#endif //BOMBERMANC_SRC_GAMEBOARD_H_
+#endif //BOMBERMANC_SRC_GAMEBOARD_HPP_
