@@ -4,3 +4,5 @@ example.txt
 /.idea
 /libs/
 /tests/libs
+/libs/SDL2-2.0.9
+/tests/libs/googletest

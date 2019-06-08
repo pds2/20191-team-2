@@ -2,9 +2,9 @@
 // Created by giow on 07/06/19.
 //
 
-#ifndef BOMBERMANC_SRC_GAMEOBJECT_H_
-#define BOMBERMANC_SRC_GAMEOBJECT_H_
-#include "Position.h"
+#ifndef BOMBERMANC_SRC_GAMEOBJECT_HPP_
+#define BOMBERMANC_SRC_GAMEOBJECT_HPP_
+#include "Position.hpp"
 class GameObject {
  protected:
     Pos pos_;
@@ -18,4 +18,4 @@ class GameObject {
 
 };
 
-#endif //BOMBERMANC_SRC_GAMEOBJECT_H_
+#endif //BOMBERMANC_SRC_GAMEOBJECT_HPP_
