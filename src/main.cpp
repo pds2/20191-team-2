@@ -3,8 +3,10 @@
 #include "GameBoard.h"
 
 int main(int argc, char *argv[]) {
-
-    auto game_board = GameBoard(8);
     testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+    auto test_ret_val  = RUN_ALL_TESTS();
+    std::cout << "Test return value: " << test_ret_val << std::endl;
+    auto game_board = GameBoard(8);
+
+    return 0;
 }
