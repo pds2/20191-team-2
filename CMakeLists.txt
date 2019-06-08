@@ -26,6 +26,7 @@ add_subdirectory(libs/SDL2-2.0.9)
 set(Headers
         #Example.h
 )
+
 #[[Sources]]
 set(Sources
         #Example.cpp

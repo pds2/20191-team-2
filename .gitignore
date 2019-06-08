@@ -2,3 +2,5 @@
 /build-release
 example.txt
 /.idea
+/libs/
+/tests/libs
