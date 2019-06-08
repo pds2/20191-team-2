@@ -25,8 +25,8 @@ set(Headers
 #[[Sources]]
 set(Sources
         #Example.cpp
-        main.cpp
-        tests/tests.cpp tests/test_class.h)
+        src/main.cpp
+        tests/tests.cpp tests/test_class.h src/Matrix.cpp src/Matrix.h src/Position.h src/GameObject.h src/Block.cpp src/Block.h src/Block.cpp src/Block.h src/GameBoard.cpp src/GameBoard.h)
 
 add_executable(${PROJECT_NAME} ${Sources} ${Headers})
 target_link_libraries(${PROJECT_NAME} gtest gtest_main)
