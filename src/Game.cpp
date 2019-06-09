@@ -73,9 +73,7 @@ void Game::init(const char *title, int x_pos, int y_pos, int width, int height, 
         is_running_ = false;
     }
 
-    SDL_Surface *tmp_surface = IMG_Load("resources/8bitengineer.png");
-    player_texture = SDL_CreateTextureFromSurface(renderer_, tmp_surface);
-    SDL_FreeSurface(tmp_surface);
+    player_texture = TextureManager::load_texture("resources/8bitengineer.png", renderer_);
 }
 
 void Game::handle_events() {

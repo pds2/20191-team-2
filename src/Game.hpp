@@ -7,6 +7,7 @@
 #include <SDL.h>
 #include <iostream>
 #include <SDL_image.h>
+#include "TextureManager.hpp"
 
 const int INDEX_FLAG = 0;
 const int NO_RENDER_FLAG = 0;
