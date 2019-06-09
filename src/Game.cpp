@@ -4,6 +4,9 @@
 
 #include "Game.hpp"
 
+SDL_Texture *player_texture;
+SDL_Rect src_rect, dest_rect;
+
 Game::Game() {
 }
 
@@ -69,6 +72,10 @@ void Game::init(const char *title, int x_pos, int y_pos, int width, int height, 
     } else {
         is_running_ = false;
     }
+
+    SDL_Surface *tmp_surface = IMG_Load("resources/8bitengineer.png");
+    player_texture = SDL_CreateTextureFromSurface(renderer_, tmp_surface);
+    SDL_FreeSurface(tmp_surface);
 }
 
 void Game::handle_events() {
@@ -87,6 +94,8 @@ void Game::handle_events() {
 
 void Game::render() {
     SDL_RenderClear(renderer_);
+    // renderer, texture, source rectangle,
+    SDL_RenderCopy(renderer_, player_texture, NULL, &dest_rect);
     // This is where we add stuff to render
     SDL_RenderPresent(renderer_);
 }
@@ -103,5 +112,8 @@ bool Game::running() {
 
 void Game::update() {
     counter_++;
-    std::cout << counter_ << std::endl;
+    dest_rect.h = 64;
+    dest_rect.w = 64;
+    dest_rect.x = counter_;
+    //std::cout << counter_ << std::endl;
 }

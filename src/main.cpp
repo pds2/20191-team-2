@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
 
     game = new Game();
     game->init("BomberEngine!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
-
+    std::cout << "Game Running: " << game->running() << std::endl;
     while(game->running())
     {
         game->handle_events();

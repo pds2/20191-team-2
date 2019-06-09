@@ -10,31 +10,36 @@ set(CMAKE_CXX_STANDARD 11)
 #[[Nice setting to have when libs are gonna be mixed and linked together]]
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-#[[Enable Testing]]
-#enable_testing()
-
 #[[Adding Google Test C++ Library]]
 add_subdirectory(tests/libs/googletest)
 include_directories(tests/libs/googletest/googletest/include)
 include_directories(tests/libs/googletest/googlemock/include)
 
-#[[Settings for SD2L Lib Static Import]]
-set( SDL_STATIC ON CACHE BOOL "" FORCE )
-set( SDL_SHARED OFF CACHE BOOL "" FORCE )
-add_subdirectory(libs/SDL2-2.0.9)
+# Add SDL2 CMake modules
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/sdl2)
 
 #[[Headers]]
 set(Headers
         #Example.h
-)
+        tests/test_class.h
+        src/Position.hpp
+        src/Matrix.hpp
+        src/GameObject.hpp
+        src/Block.hpp
+        src/GameBoard.hpp
+        src/Game.hpp
+        )
 
 #[[Sources]]
 set(Sources
         #Example.cpp
         src/main.cpp
-        tests/tests.cpp tests/test_class.h src/Matrix.cpp src/Matrix.hpp src/Position.hpp src/GameObject.hpp src/Block.cpp src/Block.hpp src/Block.cpp src/Block.hpp src/GameBoard.cpp src/GameBoard.hpp src/Game.cpp src/Game.hpp)
+        tests/tests.cpp  src/Matrix.cpp  src/Block.cpp src/Block.hpp src/Block.cpp src/GameBoard.cpp src/Game.cpp )
 
+# Create executable
 add_executable(${PROJECT_NAME} ${Sources} ${Headers})
 
 #[[Linking Libraries]]
-target_link_libraries(${PROJECT_NAME} gtest gtest_main SDL2main SDL2-static)
+find_package(SDL2 REQUIRED)
+find_package(SDL2_image REQUIRED)
+target_link_libraries(${PROJECT_NAME} gtest gtest_main SDL2::Main SDL2::Image)

@@ -6,9 +6,12 @@
 #define BOMBERMANC_SRC_GAME_HPP_
 #include <SDL.h>
 #include <iostream>
+#include <SDL_image.h>
+
 const int INDEX_FLAG = 0;
 const int NO_RENDER_FLAG = 0;
 const int NO_ERROR = 0;
+
 class Game {
     int counter_ = 0;
     bool is_running_ = false;
