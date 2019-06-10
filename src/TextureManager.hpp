@@ -10,7 +10,7 @@
 class TextureManager
 {
  public:
-    static SDL_Texture* load_texture(const char* file_name, SDL_Renderer* renderer);
+    static SDL_Texture* load_texture(const char* file_name);
 };
 
 #endif //BOMBERMANC_SRC_TEXTUREMANAGER_HPP_

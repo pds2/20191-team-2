@@ -17,10 +17,9 @@ class GameObjectSDL
     SDL_Texture* obj_texture_;
     SDL_Rect src_rect_;
     SDL_Rect dest_rect_;
-    SDL_Renderer* renderer_;
 
  public:
-    GameObjectSDL(const char* texture_sheet, SDL_Renderer* ren, const Pos& pos);
+    GameObjectSDL(const char* texture_sheet, const Pos& pos);
      ~GameObjectSDL();
     void update();
     void render();

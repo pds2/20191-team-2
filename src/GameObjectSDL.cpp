@@ -3,10 +3,9 @@
 //
 #include "GameObjectSDL.h"
 
-GameObjectSDL::GameObjectSDL(const char* texture_sheet, SDL_Renderer* renderer, const Pos& pos)
+GameObjectSDL::GameObjectSDL(const char* texture_sheet, const Pos& pos)
 {
-    renderer_ = renderer;
-    obj_texture_ = TextureManager::load_texture(texture_sheet, renderer);
+    obj_texture_ = TextureManager::load_texture(texture_sheet);
     if(obj_texture_ == NULL)
     {
         std::cerr <<   "Obj " << texture_sheet <<  " Texture not loaded!" << std::endl;
@@ -35,6 +34,6 @@ void GameObjectSDL::update()
 void GameObjectSDL::render()
 {
     //SDL_RenderCopy(renderer_, obj_texture_, &src_rect_, &dest_rect_);
-    SDL_RenderCopy(renderer_, obj_texture_, NULL, &dest_rect_);
+    SDL_RenderCopy(Game::renderer_, obj_texture_, NULL, &dest_rect_);
 }
 

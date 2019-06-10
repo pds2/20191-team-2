@@ -6,6 +6,10 @@
 #include "GameObjectSDL.h"
 
 GameObjectSDL* player;
+GameObjectSDL* enemy;
+
+// nullptr because SDL is not initiated yet
+SDL_Renderer* Game::renderer_ = nullptr;
 
 Game::Game() {
 }
@@ -72,7 +76,8 @@ void Game::init(const char *title, int x_pos, int y_pos, int width, int height, 
     } else {
         is_running_ = false;
     }
-    player = new GameObjectSDL("resources/8bitengineer.png", renderer_, Pos(0,0));
+    player = new GameObjectSDL("resources/8bitengineer.png", Pos(0,0));
+    enemy = new GameObjectSDL("resources/8bitengineer.png", Pos(50,50));
 }
 
 void Game::handle_events() {
@@ -93,6 +98,7 @@ void Game::render() {
     SDL_RenderClear(renderer_);
     // renderer, texture, source rectangle,
     player->render();
+    enemy->render();
     // This is where we add stuff to render
     SDL_RenderPresent(renderer_);
 }
@@ -110,4 +116,5 @@ bool Game::running() {
 
 void Game::update() {
     player->update();
+    enemy->update();
 }

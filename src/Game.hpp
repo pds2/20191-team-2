@@ -17,7 +17,6 @@ class Game {
     int counter_ = 0;
     bool is_running_ = false;
     SDL_Window *window_;
-    SDL_Renderer *renderer_;
 
  public:
     Game();
@@ -31,6 +30,7 @@ class Game {
     void create_window(const char *title, int x_pos, int y_pos, int width, int height, bool fullscreen);
     void create_renderer();
 
+    static  SDL_Renderer *renderer_;
 };
 
 #endif //BOMBERMANC_SRC_GAME_HPP_

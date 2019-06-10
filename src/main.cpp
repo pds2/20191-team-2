@@ -10,6 +10,8 @@ int main(int argc, char *argv[]) {
 
     const int FPS = 60;
     const int frame_delay = 1000/FPS;
+    const int WINDOW_WIDTH = 800;
+    const int WINDOW_HEIGHT = 640;
 
     Uint32 frame_start;
     int frame_time;
@@ -20,7 +22,7 @@ int main(int argc, char *argv[]) {
     auto game_board = GameBoard(8);
 
     game = new Game();
-    game->init("BomberEngine!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
+    game->init("BomberEngine!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, false);
     std::cout << "Game Running: " << game->running() << std::endl;
     while(game->running())
     {
