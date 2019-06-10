@@ -4,9 +4,10 @@
 
 #include "Game.hpp"
 #include "GameObjectSDL.h"
-
+#include "Map.h"
 GameObjectSDL* player;
 GameObjectSDL* enemy;
+Map* map;
 
 // nullptr because SDL is not initiated yet
 SDL_Renderer* Game::renderer_ = nullptr;
@@ -76,8 +77,9 @@ void Game::init(const char *title, int x_pos, int y_pos, int width, int height, 
     } else {
         is_running_ = false;
     }
-    player = new GameObjectSDL("resources/8bitengineer.png", Pos(0,0));
-    enemy = new GameObjectSDL("resources/8bitengineer.png", Pos(50,50));
+    player = new GameObjectSDL("resources/player.png", Pos(0,0));
+    enemy = new GameObjectSDL("resources/player.png", Pos(50,50));
+    map = new Map();
 }
 
 void Game::handle_events() {
@@ -97,8 +99,10 @@ void Game::handle_events() {
 void Game::render() {
     SDL_RenderClear(renderer_);
     // renderer, texture, source rectangle,
+    map->draw_map();
     player->render();
     enemy->render();
+
     // This is where we add stuff to render
     SDL_RenderPresent(renderer_);
 }

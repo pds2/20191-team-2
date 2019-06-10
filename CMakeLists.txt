@@ -34,7 +34,7 @@ set(Headers
 set(Sources
         #Example.cpp
         src/main.cpp
-        tests/tests.cpp  src/Matrix.cpp  src/Block.cpp src/Block.hpp src/Block.cpp src/GameBoard.cpp src/Game.cpp src/TextureManager.hpp src/TextureManager.cpp src/GameObjectSDL.h src/GameObjectSDL.cpp)
+        tests/tests.cpp  src/Matrix.cpp  src/Block.cpp src/Block.hpp src/Block.cpp src/GameBoard.cpp src/Game.cpp src/TextureManager.hpp src/TextureManager.cpp src/GameObjectSDL.h src/GameObjectSDL.cpp src/Map.cpp src/Map.h)
 
 # Create executable
 add_executable(${PROJECT_NAME} ${Sources} ${Headers})

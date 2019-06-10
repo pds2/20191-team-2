@@ -6,10 +6,6 @@
 GameObjectSDL::GameObjectSDL(const char* texture_sheet, const Pos& pos)
 {
     obj_texture_ = TextureManager::load_texture(texture_sheet);
-    if(obj_texture_ == NULL)
-    {
-        std::cerr <<   "Obj " << texture_sheet <<  " Texture not loaded!" << std::endl;
-    }
 
     pos_.x_ = pos.x_;
     pos_.y_ = pos.y_;
@@ -33,7 +29,8 @@ void GameObjectSDL::update()
 
 void GameObjectSDL::render()
 {
-    //SDL_RenderCopy(renderer_, obj_texture_, &src_rect_, &dest_rect_);
-    SDL_RenderCopy(Game::renderer_, obj_texture_, NULL, &dest_rect_);
+    TextureManager::draw(obj_texture_, src_rect_, dest_rect_);
+    //SDL_RenderCopy(Game::renderer_, obj_texture_, &src_rect_, &dest_rect_);
+    //SDL_RenderCopy(Game::renderer_, obj_texture_, NULL, &dest_rect_);
 }
 
