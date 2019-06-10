@@ -7,21 +7,8 @@
 
 /*Position class to be used by other classes*/
 class Pos {
-    int x_, y_;
  public:
-
-    int get_x() const {
-        return x_;
-    }
-    void set_x(int x) {
-        x_ = x;
-    }
-    int get_y() const {
-        return y_;
-    }
-    void set_y(int y) {
-        y_ = y;
-    }
+    int x_, y_;
 
     explicit Pos(int x = 0, int y = 0):x_{x},y_{y}{}
 

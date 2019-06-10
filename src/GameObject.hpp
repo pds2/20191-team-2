@@ -5,11 +5,13 @@
 #ifndef BOMBERMANC_SRC_GAMEOBJECT_HPP_
 #define BOMBERMANC_SRC_GAMEOBJECT_HPP_
 #include "Position.hpp"
+#include "Game.hpp"
+
 class GameObject {
  protected:
     Pos pos_;
-    bool blockable;
-    bool visible;
+    bool blockable_;
+    bool visible_;
 
  public:
     virtual void show() = 0;

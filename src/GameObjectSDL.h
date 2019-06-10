@@ -5,21 +5,25 @@
 #ifndef BOMBERMANC_SRC_GAMEOBJECTSDL_H_
 #define BOMBERMANC_SRC_GAMEOBJECTSDL_H_
 
-#include <SDL_render.h>
+#include "Game.hpp"
 #include "Position.hpp"
+#include "TextureManager.hpp"
+
 class GameObjectSDL
 {
- public:
-    GameObjectSDL(const char* texture_sheet, SDL_Renderer* ren);
-     GameObjectSDL();
-
-     void update();
-     void render();
  private:
     Pos pos_;
 
-    SDL_Texture* obj_texture;
-    SDL_Rect src_rect, dest_rect;
+    SDL_Texture* obj_texture_;
+    SDL_Rect src_rect_;
+    SDL_Rect dest_rect_;
     SDL_Renderer* renderer_;
+
+ public:
+    GameObjectSDL(const char* texture_sheet, SDL_Renderer* ren, const Pos& pos);
+     ~GameObjectSDL();
+    void update();
+    void render();
+
 };
 #endif //BOMBERMANC_SRC_GAMEOBJECTSDL_H_

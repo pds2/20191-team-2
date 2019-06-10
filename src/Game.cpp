@@ -3,9 +3,9 @@
 //
 
 #include "Game.hpp"
+#include "GameObjectSDL.h"
 
-SDL_Texture *player_texture;
-SDL_Rect src_rect, dest_rect;
+GameObjectSDL* player;
 
 Game::Game() {
 }
@@ -72,8 +72,7 @@ void Game::init(const char *title, int x_pos, int y_pos, int width, int height, 
     } else {
         is_running_ = false;
     }
-
-    player_texture = TextureManager::load_texture("resources/8bitengineer.png", renderer_);
+    player = new GameObjectSDL("resources/8bitengineer.png", renderer_, Pos(0,0));
 }
 
 void Game::handle_events() {
@@ -93,10 +92,11 @@ void Game::handle_events() {
 void Game::render() {
     SDL_RenderClear(renderer_);
     // renderer, texture, source rectangle,
-    SDL_RenderCopy(renderer_, player_texture, NULL, &dest_rect);
+    player->render();
     // This is where we add stuff to render
     SDL_RenderPresent(renderer_);
 }
+
 void Game::clean() {
     SDL_DestroyWindow(window_);
     SDL_DestroyRenderer(renderer_);
@@ -109,9 +109,5 @@ bool Game::running() {
 }
 
 void Game::update() {
-    counter_++;
-    dest_rect.h = 64;
-    dest_rect.w = 64;
-    dest_rect.x = counter_;
-    //std::cout << counter_ << std::endl;
+    player->update();
 }
