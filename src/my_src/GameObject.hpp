@@ -4,8 +4,8 @@
 
 #ifndef BOMBERMANC_SRC_GAMEOBJECT_HPP_
 #define BOMBERMANC_SRC_GAMEOBJECT_HPP_
-#include "Position.hpp"
-#include "Game.hpp"
+#include "../Position.hpp"
+#include "../Game.hpp"
 
 class GameObject {
  protected:

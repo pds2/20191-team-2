@@ -5,10 +5,10 @@
 #ifndef BOMBERMANC_SRC_GAMEBOARD_HPP_
 #define BOMBERMANC_SRC_GAMEBOARD_HPP_
 #include <algorithm>
-#include "Position.hpp"
+#include "../Position.hpp"
 #include "GameObject.hpp"
 #include "Matrix.hpp"
-#include "Block.hpp"
+#include "../Block.hpp"
 
 class GameBoard {
     const int BOARD_SPARSENESS = 4;

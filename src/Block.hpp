@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include "Position.hpp"
-#include "GameObject.hpp"
+#include "my_src/GameObject.hpp"
 
 class Block : public GameObject {
  public:
