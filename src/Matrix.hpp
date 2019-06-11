@@ -9,17 +9,27 @@
 
 /*Space locality Matrix*/
 class Matrix {
-    int rows_, cols_;
-    std::vector<int> matrix;
- public:
-    /*Initiate 2d matrix*/
-    Matrix(int rows, int cols): rows_{rows}, cols_{cols}, matrix(rows_ * cols_, 0){}
 
+ public:
+    int rows_, cols_;
+    /*Initiate 2d matrix_*/
+    Matrix(int rows, int cols): rows_{rows}, cols_{cols}, matrix_(rows_ * cols_, 0){
+      if(rows <= 0 || cols <= 0)
+        throw std::invalid_argument("A Matriz nao pode ter valores negativos");
+    }
+
+    int& at(int x, int y)
+    {
+      return matrix_[y * cols_ + x];
+    }
     int& operator()(int x, int y)
     {
-        return matrix[y * cols_ + x];
+        return matrix_[y * cols_ + x];
     }
 
     void print();
+ private:
+    std::vector<int> matrix_;
+
 };
 #endif //BOMBERMANC__MATRIX_H_
