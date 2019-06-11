@@ -27,6 +27,8 @@ class GameBoard {
 
   SDL_Texture* tile_;
   SDL_Texture* block_;
+  SDL_Texture* bomb_;
+
 
  public:
   std::vector<Pos> player_position_;

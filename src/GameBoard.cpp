@@ -17,6 +17,7 @@ GameBoard::GameBoard(int size) : size_{size} {
 
   tile_ = TextureManager::load_texture("resources/grass.png");
   block_ = TextureManager::load_texture("resources/brick_sprite.png");
+  bomb_ = TextureManager::load_texture("resources/bomb32.png");
 
   src_rect_.x = 0;
   src_rect_.y = 0;
@@ -32,13 +33,12 @@ GameBoard::GameBoard(int size) : size_{size} {
   fill_board(size_);
 
   player = new Bomber("resources/Bomberman.png", Pos(0,0), this->board_);
-
-
 }
 
 GameBoard::~GameBoard() {
   TextureManager::destroy_texture(tile_);
   TextureManager::destroy_texture(block_);
+  TextureManager::destroy_texture(bomb_);
   delete board_;
 }
 
@@ -142,6 +142,7 @@ void GameBoard::draw() {
           break;
         case BLOCK:TextureManager::draw(block_, src_rect_, dest_rect_);
           break;
+        case BOMB:TextureManager::draw(bomb_, src_rect_, dest_rect_);
         default:break;
       }
     }

@@ -43,7 +43,7 @@ set(Sources
         src/Game.cpp
         src/TextureManager.cpp
         src/GameObjectSDL.cpp
-        src/Bomber.cpp src/Bomber.h src/ObjTypes.h)
+        src/Bomber.cpp src/Bomber.h src/ObjTypes.h tests/MatrixTests.cpp tests/PositionTests.cpp tests/TextureManagerTests.cpp)
 
 # Create executable
 add_executable(${PROJECT_NAME} ${Sources} ${Headers})

@@ -5,6 +5,7 @@
 #ifndef BOMBERMANC_SRC_POSITION_HPP_
 #define BOMBERMANC_SRC_POSITION_HPP_
 
+#include <stdexcept>
 /*Position class to be used by other classes*/
 class Pos {
  public:

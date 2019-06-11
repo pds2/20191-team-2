@@ -13,7 +13,10 @@ class Matrix {
  public:
     int rows_, cols_;
     /*Initiate 2d matrix_*/
-    Matrix(int rows, int cols): rows_{rows}, cols_{cols}, matrix_(rows_ * cols_, 0){}
+    Matrix(int rows, int cols): rows_{rows}, cols_{cols}, matrix_(rows_ * cols_, 0){
+      if(rows <= 0 || cols <= 0)
+        throw std::invalid_argument("A Matriz nao pode ter valores negativos");
+    }
 
     int& at(int x, int y)
     {

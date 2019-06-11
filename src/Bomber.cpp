@@ -104,8 +104,9 @@ void Bomber::move_right() {
   to_move_.y_ = pos_.y_;
 }
 void Bomber::break_block() {
-  game_board_ref_->at(pos_.x_+1, pos_.y_) = 0;
-  game_board_ref_->at(pos_.x_-1, pos_.y_) = 0;
-  game_board_ref_->at(pos_.x_, pos_.y_+1) = 0;
-  game_board_ref_->at(pos_.x_, pos_.y_-1) = 0;
+  game_board_ref_->at(pos_.x_+1, pos_.y_) = TILE;
+  game_board_ref_->at(pos_.x_-1, pos_.y_) = TILE;
+  game_board_ref_->at(pos_.x_, pos_.y_+1) = TILE;
+  game_board_ref_->at(pos_.x_, pos_.y_-1) = TILE;
+  game_board_ref_->at(pos_.x_, pos_.y_) = BOMB;
 }
