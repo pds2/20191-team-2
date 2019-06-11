@@ -20,3 +20,7 @@ SDL_Texture* TextureManager::load_texture(const char *file_name) {
 void TextureManager::draw(SDL_Texture *texture, SDL_Rect src_rect, SDL_Rect dest_rect) {
     SDL_RenderCopy(Game::renderer_, texture, &src_rect, &dest_rect);
 }
+
+void TextureManager::destroy_texture(SDL_Texture *texture) {
+    SDL_DestroyTexture(texture);
+}

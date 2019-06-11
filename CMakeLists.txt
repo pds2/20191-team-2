@@ -23,18 +23,29 @@ set(Headers
         #Example.h
         tests/test_class.h
         src/Position.hpp
-        src/my_src/Matrix.hpp
-        src/my_src/GameObject.hpp
-        src/Block.hpp
-        src/my_src/GameBoard.hpp
+        src/Matrix.hpp
+        src/GameBoard.hpp
         src/Game.hpp
+        src/Map.h
+        src/GameController.h
+        src/GameObjectSDL.h
+        src/TextureManager.hpp
+        src/Block.h
         )
 
 #[[Sources]]
 set(Sources
         #Example.cpp
         src/main.cpp
-        tests/tests.cpp src/my_src/Matrix.cpp src/Block.cpp src/Block.hpp src/Block.cpp src/my_src/GameBoard.cpp src/Game.cpp src/TextureManager.hpp src/TextureManager.cpp src/GameObjectSDL.h src/GameObjectSDL.cpp src/Map.cpp src/Map.h src/ECS.cpp src/ECS.h)
+        tests/tests.cpp
+        src/Matrix.cpp
+        src/Block.cpp
+        src/GameBoard.cpp
+        src/Game.cpp
+        src/TextureManager.cpp
+        src/GameObjectSDL.cpp
+        src/Map.cpp
+        src/Bomber.cpp src/Bomber.h src/ObjTypes.h)
 
 # Create executable
 add_executable(${PROJECT_NAME} ${Sources} ${Headers})

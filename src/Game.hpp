@@ -31,6 +31,7 @@ class Game {
     void create_renderer();
 
     static  SDL_Renderer *renderer_;
+    static SDL_Event event;
 };
 
 #endif //BOMBERMANC_SRC_GAME_HPP_

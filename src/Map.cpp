@@ -3,7 +3,7 @@
 //
 
 #include "Map.h"
-#include "TextureManager.hpp"
+
 
 int lvl1 [20][25] = {
     {0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0},
@@ -45,7 +45,9 @@ Map::Map() {
     dest_rect.h = 32;
 }
 Map::~Map() {
-
+    TextureManager::destroy_texture(grass);
+    TextureManager::destroy_texture(water);
+    TextureManager::destroy_texture(dirt);
 }
 void Map::load_map(int arr[20][25]) {
     for(int row = 0; row < 20; row++)

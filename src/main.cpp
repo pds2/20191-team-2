@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
     const int FPS = 60;
     const int frame_delay = 1000/FPS;
     const int WINDOW_WIDTH = 800;
-    const int WINDOW_HEIGHT = 640;
+    const int WINDOW_HEIGHT = 800;
 
     Uint32 frame_start;
     int frame_time;
@@ -31,7 +31,6 @@ int main(int argc, char *argv[]) {
         game->render();
 
         frame_time = SDL_GetTicks() - frame_start;
-
         if(frame_delay  > frame_time)
         {
             SDL_Delay(frame_delay - frame_time);

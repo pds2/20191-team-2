@@ -5,12 +5,14 @@
 #include "Game.hpp"
 #include "GameObjectSDL.h"
 #include "Map.h"
-GameObjectSDL* player;
-GameObjectSDL* enemy;
-Map* map;
+#include "GameBoard.hpp"
+#include "Bomber.h"
 
+GameBoard* game_board;
+Bomber* player;
 // nullptr because SDL is not initiated yet
 SDL_Renderer* Game::renderer_ = nullptr;
+SDL_Event Game::event;
 
 Game::Game() {
 }
@@ -48,7 +50,6 @@ void Game::create_renderer() {
 }
 
 
-
 void Game::init(const char *title, int x_pos, int y_pos, int width, int height, bool fullscreen) {
 
     if (SDL_InitSubSystem(SDL_INIT_EVERYTHING) == NO_ERROR) {
@@ -77,13 +78,14 @@ void Game::init(const char *title, int x_pos, int y_pos, int width, int height, 
     } else {
         is_running_ = false;
     }
-    player = new GameObjectSDL("resources/player.png", Pos(0,0));
-    enemy = new GameObjectSDL("resources/player.png", Pos(50,50));
-    map = new Map();
+    //player = new GameObjectSDL("resources/player.png", Pos(0,0));
+    //enemy = new GameObjectSDL("resources/player.png", Pos(50,50));
+    game_board = new GameBoard(GAME_BOARD_SIZE);
+    player = new Bomber("resources/Bomberman.png", Pos(0,0), game_board);
 }
 
 void Game::handle_events() {
-    SDL_Event event;
+
     SDL_PollEvent(&event);
     switch (event.type)
     {
@@ -99,9 +101,10 @@ void Game::handle_events() {
 void Game::render() {
     SDL_RenderClear(renderer_);
     // renderer, texture, source rectangle,
-    map->draw_map();
+    game_board->draw();
     player->render();
-    enemy->render();
+    //player->render();
+    //enemy->render();
 
     // This is where we add stuff to render
     SDL_RenderPresent(renderer_);
@@ -119,6 +122,7 @@ bool Game::running() {
 }
 
 void Game::update() {
-    player->update();
-    enemy->update();
+   player->update();
+   std::cout << "P, pos: [" << player->pos_.x_ << "," << player->pos_.y_ << "]" << "T, pos ["
+                            << player->to_move_.x_ << "," << player->to_move_.y_ << "]" << std::endl;
 }

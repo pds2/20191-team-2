@@ -15,6 +15,10 @@ class Matrix {
     /*Initiate 2d matrix_*/
     Matrix(int rows, int cols): rows_{rows}, cols_{cols}, matrix_(rows_ * cols_, 0){}
 
+    int& at(int x, int y)
+    {
+      return matrix_[y * cols_ + x];
+    }
     int& operator()(int x, int y)
     {
         return matrix_[y * cols_ + x];
