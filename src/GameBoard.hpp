@@ -9,12 +9,15 @@
 #include "Position.hpp"
 #include "Matrix.hpp"
 #include "ObjTypes.h"
-
+#include "Block.h"
+#include "Bomber.h"
 
 const int BOARD_SPARSENESS = 4;
 const int MAX_BOARD_SIZE = 8;
 const int MIN_BOARD_SIZE = 3;
 const int MAX_NUM_OF_PLAYERS = 4;
+const int SPRITE_32 = 32;
+const int SPRITE_64 = 64;
 const int SPRITE_SIZE = 100;
 const int GAME_BOARD_SIZE = 8;
 
@@ -25,9 +28,10 @@ class GameBoard {
   SDL_Texture* tile_;
   SDL_Texture* block_;
 
-  std::vector<Pos> player_position_;
-
  public:
+  std::vector<Pos> player_position_;
+  std::vector<Bomber* > players;
+  Bomber *player;
   Matrix* board_;
   explicit GameBoard(int size);
 
@@ -50,6 +54,10 @@ class GameBoard {
   void add_block(int x, int y);
 
   void draw();
+
+  void render_obj(GameObjectSDL* game_obj);
+
+  void update_obj(GameObjectSDL* game_obj);
 
   virtual ~GameBoard();
 //std::vector<Block> game_blocks_;

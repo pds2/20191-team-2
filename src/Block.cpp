@@ -1,5 +1,5 @@
 #include "Block.h"
-//
+
 Block::Block(const char *texture_sheet, const Pos &pos) : GameObjectSDL(texture_sheet, pos) {
     set_blockable(true);
     set_visible(true);

@@ -4,7 +4,6 @@
 
 #ifndef BOMBERMANC_SRC_TEXTUREMANAGER_HPP_
 #define BOMBERMANC_SRC_TEXTUREMANAGER_HPP_
-
 #include "Game.hpp"
 
 class TextureManager

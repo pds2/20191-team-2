@@ -16,12 +16,12 @@ GameBoard::GameBoard(int size) : size_{size} {
   }
 
   tile_ = TextureManager::load_texture("resources/grass.png");
-  block_ = TextureManager::load_texture("resources/dirt.png");
+  block_ = TextureManager::load_texture("resources/brick_sprite.png");
 
   src_rect_.x = 0;
   src_rect_.y = 0;
-  src_rect_.w = 32;
-  src_rect_.h = 32;
+  src_rect_.w = SPRITE_32;
+  src_rect_.h = SPRITE_32;
 
   dest_rect_.x = 0;
   dest_rect_.y = 0;
@@ -29,8 +29,11 @@ GameBoard::GameBoard(int size) : size_{size} {
   dest_rect_.h = SPRITE_SIZE;
 
   set_players_pos();
-
   fill_board(size_);
+
+  player = new Bomber("resources/Bomberman.png", Pos(0,0), this->board_);
+
+
 }
 
 GameBoard::~GameBoard() {
@@ -113,33 +116,37 @@ bool GameBoard::is_player_pos(int x, int y) {
   }
   return false;
 }
+void GameBoard::update_obj(GameObjectSDL *game_obj) {
+  game_obj->update();
+}
 
 void GameBoard::add_block(int x, int y) {
   //this->game_blocks_.emplace_back(x, y);
 }
+void GameBoard::render_obj(GameObjectSDL *game_obj) {
+  game_obj->render();
+}
+
 void GameBoard::draw() {
   int type;
 
-  for(int row = 0; row < this->size_; row++)
-  {
-    for(int col = 0; col < this->size_; col++)
-    {
+  for (int row = 0; row < this->size_; row++) {
+    for (int col = 0; col < this->size_; col++) {
       type = board_->at(col, row);
 
       dest_rect_.x = col * SPRITE_SIZE;
       dest_rect_.y = row * SPRITE_SIZE;
 
-      switch (type)
-      {
-        case TILE:
-          TextureManager::draw(tile_, src_rect_, dest_rect_);
+      switch (type) {
+        case TILE:TextureManager::draw(tile_, src_rect_, dest_rect_);
           break;
-        case BLOCK:
-          TextureManager::draw(block_, src_rect_, dest_rect_);
+        case BLOCK:TextureManager::draw(block_, src_rect_, dest_rect_);
           break;
-        default:
-          break;
+        default:break;
       }
     }
   }
+
+  render_obj(player);
+  player->update();
 }

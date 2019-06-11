@@ -54,14 +54,16 @@ void Bomber::try_to_move() {
 }
 bool Bomber::can_move() {
   /*Is out of the board ?*/
-  if((to_move_.x_ >= game_board_ref_->rows_) ||
+  if((to_move_.x_ >= game_board_ref_->cols_) ||
       (to_move_.x_ < 0) ||
-      (to_move_.y_ >= game_board_ref_->rows_) ||
+      (to_move_.y_ >= game_board_ref_->cols_) ||
       (to_move_.y_ < 0))
   {
       return false;
-  }else return game_board_ref_->at(to_move_.x_, to_move_.y_) == TILE;
-  /*Is there a block where I want to move ?*/
+      //*Is there a block where I want to move ?*/
+  }else
+    return game_board_ref_->at(to_move_.x_, to_move_.y_) == TILE;
+
 
 }
 bool Bomber::put_bomb() {
