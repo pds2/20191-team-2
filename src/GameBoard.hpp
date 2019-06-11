@@ -26,13 +26,14 @@ class GameBoard {
   SDL_Rect src_rect_, dest_rect_;
 
   SDL_Texture* tile_;
-  SDL_Texture* block_;
+  SDL_Texture* block_texture_;
   SDL_Texture* bomb_;
 
 
  public:
   std::vector<Pos> player_position_;
-  std::vector<Bomber* > players;
+  std::vector<Bomber* > players_;
+  std::vector<Block* > blocks_;
   Bomber *player;
   Matrix* board_;
   explicit GameBoard(int size);

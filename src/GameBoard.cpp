@@ -16,7 +16,7 @@ GameBoard::GameBoard(int size) : size_{size} {
   }
 
   tile_ = TextureManager::load_texture("resources/grass.png");
-  block_ = TextureManager::load_texture("resources/brick_sprite.png");
+  block_texture_ = TextureManager::load_texture("resources/brick_sprite.png");
   bomb_ = TextureManager::load_texture("resources/bomb32.png");
 
   src_rect_.x = 0;
@@ -37,7 +37,7 @@ GameBoard::GameBoard(int size) : size_{size} {
 
 GameBoard::~GameBoard() {
   TextureManager::destroy_texture(tile_);
-  TextureManager::destroy_texture(block_);
+  TextureManager::destroy_texture(block_texture_);
   TextureManager::destroy_texture(bomb_);
   delete board_;
 }
@@ -121,7 +121,7 @@ void GameBoard::update_obj(GameObjectSDL *game_obj) {
 }
 
 void GameBoard::add_block(int x, int y) {
-  //this->game_blocks_.emplace_back(x, y);
+  //blocks_.emplace_back(new Block(block_texture_,Pos(x, y), board_));
 }
 void GameBoard::render_obj(GameObjectSDL *game_obj) {
   game_obj->render();
@@ -140,7 +140,7 @@ void GameBoard::draw() {
       switch (type) {
         case TILE:TextureManager::draw(tile_, src_rect_, dest_rect_);
           break;
-        case BLOCK:TextureManager::draw(block_, src_rect_, dest_rect_);
+        case BLOCK:TextureManager::draw(block_texture_, src_rect_, dest_rect_);
           break;
         case BOMB:
           TextureManager::draw(tile_, src_rect_, dest_rect_);
@@ -151,5 +151,5 @@ void GameBoard::draw() {
   }
 
   render_obj(player);
-  player->update();
+  update_obj(player);
 }

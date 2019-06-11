@@ -1,6 +1,7 @@
 #include "Block.h"
 
-Block::Block(const char *texture_sheet, const Pos &pos) : GameObjectSDL(texture_sheet, pos) {
+Block::Block(const char *texture_sheet, const Pos &pos, Matrix* game_board_ref) : GameObjectSDL(texture_sheet, pos) {
+  game_board_ref_ = game_board_ref;
     set_blockable(true);
     set_visible(true);
 }
@@ -16,7 +17,11 @@ void Block::destroy() {
     }
 }
 void Block::update() {
-
+  if (game_board_ref_->at(pos_.x_, pos_.y_) != BLOCK)
+  {
+    set_visible(true);
+    set_destroyed(true);
+  }
 }
 bool Block::is_destroyed() const {
     return destroyed_;
