@@ -26,7 +26,6 @@ set(Headers
         src/Matrix.hpp
         src/GameBoard.hpp
         src/Game.hpp
-        src/Map.h
         src/GameController.h
         src/GameObjectSDL.h
         src/TextureManager.hpp
@@ -44,7 +43,6 @@ set(Sources
         src/Game.cpp
         src/TextureManager.cpp
         src/GameObjectSDL.cpp
-        src/Map.cpp
         src/Bomber.cpp src/Bomber.h src/ObjTypes.h)
 
 # Create executable

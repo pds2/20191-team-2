@@ -3,8 +3,7 @@
 //
 
 #include "Game.hpp"
-#include "GameObjectSDL.h"
-#include "Map.h"
+
 #include "GameBoard.hpp"
 #include "Bomber.h"
 
@@ -81,7 +80,7 @@ void Game::init(const char *title, int x_pos, int y_pos, int width, int height, 
     //player = new GameObjectSDL("resources/player.png", Pos(0,0));
     //enemy = new GameObjectSDL("resources/player.png", Pos(50,50));
     game_board = new GameBoard(GAME_BOARD_SIZE);
-    player = new Bomber("resources/Bomberman.png", Pos(0,0), game_board);
+    player = new Bomber("resources/Bomberman.png", Pos(0,0), game_board->board_);
 }
 
 void Game::handle_events() {

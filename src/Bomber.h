@@ -4,18 +4,17 @@
 
 #ifndef BOMBERMANC_SRC_BOMBER_H_
 #define BOMBERMANC_SRC_BOMBER_H_
-#include "GameBoard.hpp"
 #include "GameObjectSDL.h"
-#include "GameController.h"
 #include "ObjTypes.h"
+#include "Matrix.hpp"
 
 class Bomber : public GameObjectSDL
 {
-  KeyboardController controller_;
+  //KeyboardController controller_;
   int bomb_num_;
-  GameBoard* game_board_ref_;
+  Matrix* game_board_ref_;
  public:
-  Bomber(const char *texture_sheet, const Pos &pos, GameBoard* game_board_ref);
+  Bomber(const char *texture_sheet, const Pos &pos, Matrix* game_board_ref);
   virtual ~Bomber();
   void render() override;
   void destroy() override;

@@ -10,6 +10,7 @@
 #include "Matrix.hpp"
 #include "ObjTypes.h"
 
+
 const int BOARD_SPARSENESS = 4;
 const int MAX_BOARD_SIZE = 8;
 const int MIN_BOARD_SIZE = 3;

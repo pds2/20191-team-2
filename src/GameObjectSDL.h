@@ -5,7 +5,6 @@
 #ifndef BOMBERMANC_SRC_GAMEOBJECTSDL_H_
 #define BOMBERMANC_SRC_GAMEOBJECTSDL_H_
 
-#include "Game.hpp"
 #include "Position.hpp"
 #include "TextureManager.hpp"
 

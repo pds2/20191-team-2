@@ -1,3 +1,7 @@
+
+#ifndef BOMBERMANC_SRC_BLOCK_H_
+#define BOMBERMANC_SRC_BLOCK_H_
+
 #include "GameObjectSDL.h"
 class Block : public GameObjectSDL
 {
@@ -12,3 +16,4 @@ class Block : public GameObjectSDL
     void destroy() override;
     void update() override;
 };
+#endif //BOMBERMANC_SRC_BLOCK_H_

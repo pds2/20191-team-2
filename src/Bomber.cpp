@@ -4,7 +4,7 @@
 
 #include "Bomber.h"
 #include "GameBoard.hpp"
-Bomber::Bomber(const char *texture_sheet, const Pos &pos, GameBoard* game_board_ref) : GameObjectSDL(texture_sheet, pos) {
+Bomber::Bomber(const char *texture_sheet, const Pos &pos, Matrix* game_board_ref) : GameObjectSDL(texture_sheet, pos) {
   set_visible(true);
   game_board_ref_ = game_board_ref;
   src_rect_.x = 0;
@@ -54,13 +54,13 @@ void Bomber::try_to_move() {
 }
 bool Bomber::can_move() {
   /*Is out of the board ?*/
-  if((to_move_.x_ >= game_board_ref_->size_) ||
+  if((to_move_.x_ >= game_board_ref_->rows_) ||
       (to_move_.x_ < 0) ||
-      (to_move_.y_ >= game_board_ref_->size_) ||
+      (to_move_.y_ >= game_board_ref_->rows_) ||
       (to_move_.y_ < 0))
   {
       return false;
-  }else return game_board_ref_->board_->at(to_move_.x_, to_move_.y_) == TILE;
+  }else return game_board_ref_->at(to_move_.x_, to_move_.y_) == TILE;
   /*Is there a block where I want to move ?*/
 
 }
@@ -102,8 +102,8 @@ void Bomber::move_right() {
   to_move_.y_ = pos_.y_;
 }
 void Bomber::break_block() {
-  game_board_ref_->board_->at(pos_.x_+1, pos_.y_) = 0;
-  game_board_ref_->board_->at(pos_.x_-1, pos_.y_) = 0;
-  game_board_ref_->board_->at(pos_.x_, pos_.y_+1) = 0;
-  game_board_ref_->board_->at(pos_.x_, pos_.y_-1) = 0;
+  game_board_ref_->at(pos_.x_+1, pos_.y_) = 0;
+  game_board_ref_->at(pos_.x_-1, pos_.y_) = 0;
+  game_board_ref_->at(pos_.x_, pos_.y_+1) = 0;
+  game_board_ref_->at(pos_.x_, pos_.y_-1) = 0;
 }

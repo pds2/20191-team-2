@@ -8,6 +8,8 @@
 #include <iostream>
 #include <SDL_image.h>
 #include "TextureManager.hpp"
+#include "GameObjectSDL.h"
+
 
 const int INDEX_FLAG = 0;
 const int NO_RENDER_FLAG = 0;
