@@ -93,9 +93,6 @@ void Game::render() {
   SDL_RenderClear(renderer_);
   // renderer, texture, source rectangle,
   game_board->draw();
-  //player->render();
-  //player->render();
-  //enemy->render();
 
   // This is where we add stuff to render
   SDL_RenderPresent(renderer_);
