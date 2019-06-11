@@ -7,6 +7,10 @@
 Bomber::Bomber(const char *texture_sheet, const Pos &pos, Matrix* game_board_ref) : GameObjectSDL(texture_sheet, pos) {
   set_visible(true);
   game_board_ref_ = game_board_ref;
+  if (game_board_ref == NULL) {
+    throw std::invalid_argument("Need a valid gameboard to move through the map!");
+  }
+
   src_rect_.x = 0;
   src_rect_.y = 0;
   src_rect_.w = 64;

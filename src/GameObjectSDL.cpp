@@ -3,11 +3,13 @@
 //
 #include "GameObjectSDL.h"
 
-GameObjectSDL::GameObjectSDL(const char* texture_sheet, const Pos& pos)
-{
-    obj_texture_ = TextureManager::load_texture(texture_sheet);
-    pos_.x_ = pos.x_;
-    pos_.y_ = pos.y_;
+GameObjectSDL::GameObjectSDL(const char *texture_sheet, const Pos &pos) {
+  if (texture_sheet == NULL) {
+    throw std::invalid_argument("Need a valid texture!");
+  }
+  obj_texture_ = TextureManager::load_texture(texture_sheet);
+  pos_.x_ = pos.x_;
+  pos_.y_ = pos.y_;
 }
 
 /*
@@ -40,22 +42,22 @@ void GameObjectSDL::render()
 */
 
 bool GameObjectSDL::is_blockable() const {
-    return blockable_;
+  return blockable_;
 }
 
 void GameObjectSDL::set_blockable(bool blockable) {
-    blockable_ = blockable;
+  blockable_ = blockable;
 }
 
 bool GameObjectSDL::is_visible() const {
-    return visible_;
+  return visible_;
 }
 
 void GameObjectSDL::set_visible(bool visible) {
-    visible_ = visible;
+  visible_ = visible;
 }
 GameObjectSDL::~GameObjectSDL() {
 /*Delete texture used by object when deleting*/
-    TextureManager::destroy_texture(this->obj_texture_);
+  TextureManager::destroy_texture(this->obj_texture_);
 }
 

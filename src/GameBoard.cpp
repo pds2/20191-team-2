@@ -142,7 +142,9 @@ void GameBoard::draw() {
           break;
         case BLOCK:TextureManager::draw(block_, src_rect_, dest_rect_);
           break;
-        case BOMB:TextureManager::draw(bomb_, src_rect_, dest_rect_);
+        case BOMB:
+          TextureManager::draw(tile_, src_rect_, dest_rect_);
+          TextureManager::draw(bomb_, src_rect_, dest_rect_);
         default:break;
       }
     }
