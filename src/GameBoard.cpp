@@ -3,6 +3,7 @@
 //
 
 #include "GameBoard.hpp"
+
 GameBoard::GameBoard(int size) : size_{size} {
   /*Safe tests*/
   if (size < 0) {
@@ -35,6 +36,7 @@ GameBoard::GameBoard(int size) : size_{size} {
   player = new Bomber("resources/Bomberman.png", Pos(0,0), this->board_);
 }
 
+/*Game board destructor, cleaning texture pointers used*/
 GameBoard::~GameBoard() {
   TextureManager::destroy_texture(tile_);
   TextureManager::destroy_texture(block_texture_);

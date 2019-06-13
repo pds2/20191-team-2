@@ -21,7 +21,7 @@ const int SPRITE_64 = 64;
 const int SPRITE_SIZE = 100;
 const int GAME_BOARD_SIZE = 8;
 
-
+/*GameBoard class, gonna restructure this to make it more OOP*/
 class GameBoard {
   SDL_Rect src_rect_, dest_rect_;
 
