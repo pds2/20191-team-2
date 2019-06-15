@@ -1,5 +1,5 @@
 #[[CMake version]]
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.10)
 #[[Project Name]]
 set(PROJECT_NAME BombermanC++)
 project(${PROJECT_NAME})
