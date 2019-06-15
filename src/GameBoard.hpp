@@ -5,6 +5,7 @@
 #ifndef BOMBERMANC_SRC_GAMEBOARD_HPP_
 #define BOMBERMANC_SRC_GAMEBOARD_HPP_
 #include <algorithm>
+#include <random>
 #include "TextureManager.hpp"
 #include "Position.hpp"
 #include "Matrix.hpp"
