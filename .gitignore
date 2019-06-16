@@ -7,3 +7,4 @@ example.txt
 /libs/SDL2-2.0.9
 /libs/SDL2_image-2.0.4
 /tests/libs/googletest
+/CMakeFiles

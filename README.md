@@ -22,12 +22,12 @@ sudo apt install cmake libsdl2-dev libsdl2-image-dev
 https://github.com/pds2/20191-team-2
 cd /path/to/folder
 
-# Create a build folder
-mkdir build
-cd build
+# Clone Google Tests to tests/libs
+cd /tests/libs
+git clone https://github.com/google/googletest
 
 # Build
-cmake ..
+cmake .
 make
 
 # Run

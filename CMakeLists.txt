@@ -35,6 +35,7 @@ set(Headers
 #[[Sources]]
 set(Sources
         #Example.cpp
+        src/GameLogic.cpp
         src/main.cpp
         tests/tests.cpp
         src/Matrix.cpp
@@ -43,7 +44,7 @@ set(Sources
         src/Game.cpp
         src/TextureManager.cpp
         src/GameObjectSDL.cpp
-        src/Bomber.cpp src/Bomber.h src/ObjTypes.h tests/MatrixTests.cpp tests/PositionTests.cpp tests/TextureManagerTests.cpp tests/BomberTests.cpp)
+        src/Bomber.cpp src/Bomber.h src/ObjTypes.h tests/MatrixTests.cpp tests/PositionTests.cpp tests/TextureManagerTests.cpp tests/BomberTests.cpp src/PlayerObjLogic.cpp)
 
 # Create executable
 add_executable(${PROJECT_NAME} ${Sources} ${Headers})
